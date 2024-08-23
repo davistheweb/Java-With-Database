@@ -1,11 +1,13 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Clic nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package javawdatabase;
+//package javawdatabase;
+import com.sun.jdi.connect.spi.Connection;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-/**
+/*
  *
  * @author GOI
  */
@@ -51,6 +53,8 @@ public class Register extends javax.swing.JFrame {
         submit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(0, 102, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("BIOMETRIC CRIME INFORMATION SYSTEM.");
@@ -140,7 +144,7 @@ public class Register extends javax.swing.JFrame {
                         .addGap(0, 70, Short.MAX_VALUE)))
                 .addGap(68, 68, 68))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(167, 167, 167)
+                .addGap(212, 212, 212)
                 .addComponent(submit, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -196,9 +200,9 @@ public class Register extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
                     .addComponent(Kin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
+                .addGap(22, 22, 22)
                 .addComponent(submit, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -217,30 +221,30 @@ public class Register extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-        // Variables declaration - do not modify//GEN-BEGIN:variables
-        private javax.swing.JTextArea Address;
-        private javax.swing.JTextField Age;
-        private javax.swing.JTextField Kin;
-        private javax.swing.JTextField LGA;
-        private javax.swing.JComboBox<String> Sex;
-        private javax.swing.JComboBox<String> Sto;
-        private javax.swing.JTextField fName;
-        private javax.swing.JLabel jLabel1;
-        private javax.swing.JLabel jLabel10;
-        private javax.swing.JLabel jLabel2;
-        private javax.swing.JLabel jLabel3;
-        private javax.swing.JLabel jLabel4;
-        private javax.swing.JLabel jLabel5;
-        private javax.swing.JLabel jLabel6;
-        private javax.swing.JLabel jLabel7;
-        private javax.swing.JLabel jLabel8;
-        private javax.swing.JLabel jLabel9;
-        private javax.swing.JPanel jPanel1;
-        private javax.swing.JScrollPane jScrollPane1;
-        private javax.swing.JTextField mName;
-        private javax.swing.JTextField othName;
-        private javax.swing.JButton submit;
-        // End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea Address;
+    private javax.swing.JTextField Age;
+    private javax.swing.JTextField Kin;
+    private javax.swing.JTextField LGA;
+    private javax.swing.JComboBox<String> Sex;
+    private javax.swing.JComboBox<String> Sto;
+    private javax.swing.JTextField fName;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField mName;
+    private javax.swing.JTextField othName;
+    private javax.swing.JButton submit;
+    // End of variables declaration//GEN-END:variables
 
     private void fNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fNameActionPerformed
         // TODO add your handling code here:
@@ -255,7 +259,18 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_LGAActionPerformed
 
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
-        System.out.println(LGA.getText());
+           
+        try{
+            String dbUrl = "jbdc:MySql://localhost/bio_crime_info";
+            String dbUserName = "root";
+            String dbPassword = "";
+            Connection conn = DriverManager.getConnection(dbUrl,dbUserName,dbPassword);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(new JFrame(), e.getMessage(), "Error Message", JOptionPane.INFORMATION_MESSAGE);
+        }
+//        System.out.println(LGA.getText());
+//        System.out.println(Sto.getSelectedItem().toString());
     }//GEN-LAST:event_submitActionPerformed
 
     /**
