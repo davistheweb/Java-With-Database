@@ -84,7 +84,7 @@ public class menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
-        Register reg = new Register();
+        registration_form reg = new registration_form();
         reg.setVisible(true);
     // TODO add your handling code here:
     }//GEN-LAST:event_registerActionPerformed

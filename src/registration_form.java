@@ -3,20 +3,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 //package javawdatabase;
-import com.sun.jdi.connect.spi.Connection;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.PreparedStatement;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
+import javax.swing.table.DefaultTableModel;
+
 
 /*
  *
  * @author GOI
  */
-public class Register extends javax.swing.JFrame {
+public class registration_form extends javax.swing.JFrame {
 
     /**
      * Creates new form Register
      */
-    public Register() {
+    public registration_form() {
         initComponents();
     }
 
@@ -259,12 +265,30 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_LGAActionPerformed
 
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
-           
+            
         try{
-            String dbUrl = "jbdc:MySql://localhost/bio_crime_info";
+            String dbUrl = "jdbc:MySql://localhost:3306/bio_crime_info";
             String dbUserName = "root";
             String dbPassword = "";
             Connection conn = DriverManager.getConnection(dbUrl,dbUserName,dbPassword);
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO biodata VALUES(?,?,?,?,?,?,?,?,?)");
+            ps.setString(1,fName.getText());
+            ps.setString(2,mName.getText());
+            ps.setString(3,othName.getText());
+            ps.setString(4, Address.getText());
+            ps.setString(5, Sex.getSelectedItem().toString());
+            int age = Integer.parseInt(Age.getText());
+            ps.setInt(6, age);
+            String stateOfOrigin = Sto.getSelectedItem().toString();
+            ps.setString(7, stateOfOrigin);
+            ps.setString(8, LGA.getText());
+            ps.setString(9, Kin.getText());
+            
+            int x = ps.executeUpdate();
+            
+            if(x!= 0){
+            JOptionPane.showMessageDialog(null, "inserted");
+            }
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(new JFrame(), e.getMessage(), "Error Message", JOptionPane.INFORMATION_MESSAGE);
@@ -290,20 +314,21 @@ public class Register extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(registration_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(registration_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(registration_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(registration_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Register().setVisible(true);
+                new registration_form().setVisible(true);
             }
         });
     }
