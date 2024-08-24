@@ -3,10 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 //package javawdatabase;
+import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
@@ -290,7 +292,7 @@ public class registration_form extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "inserted");
             }
         }
-        catch(Exception e){
+        catch(SQLException e){
             JOptionPane.showMessageDialog(new JFrame(), e.getMessage(), "Error Message", JOptionPane.INFORMATION_MESSAGE);
         }
 //        System.out.println(LGA.getText());
