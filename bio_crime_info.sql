@@ -43,14 +43,6 @@ CREATE TABLE `biodata` (
 -- Dumping data for table `biodata`
 --
 
-INSERT INTO `biodata` (`sName`, `mName`, `oName`, `Address`, `sex`, `age`, `state`, `Lga`, `kin`) VALUES
-('ojiu', 'likjhkljh', 'lijh', 'jiujh', 'Male', 45, 'Abia', 'kjjhgbv', 'ljihujh'),
-('Onyekajah', 'Justice', 'ndubuisi', 'Imo', 'Male', 20, 'Imo', 'mbano', 'onyekajah'),
-('edwfr', 'fsaz', 'dv sz', 'vds', 'Female', 32, 'Abuja', 'dawsfss', 'aefsdz\\'),
-('jhgjn', 'adewd', 'dsdscas', 'as\\', 'Male', 12, 'Abia', 'sdcs', 'v sd'),
-('jhgjn', 'adewd', 'dsdscas', 'as\\', 'Male', 23, 'Abia', 'sdcs', 'v sd');
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

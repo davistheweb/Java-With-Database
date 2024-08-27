@@ -270,8 +270,8 @@ public class registration_form extends javax.swing.JFrame {
             
         try{
             String dbUrl = "jdbc:MySql://localhost:3306/bio_crime_info";
-            String dbUserName = "root";
-            String dbPassword = "";
+            String dbUserName = "davistheweb";
+            String dbPassword = "Helloworld100";
             Connection conn = DriverManager.getConnection(dbUrl,dbUserName,dbPassword);
             PreparedStatement ps = conn.prepareStatement("INSERT INTO biodata VALUES(?,?,?,?,?,?,?,?,?)");
             ps.setString(1,fName.getText());
